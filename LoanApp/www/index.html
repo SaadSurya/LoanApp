@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Phenix</title>
+    <link href="css\bootstrap.css" rel="stylesheet">
+    <link href="css\custom.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.close').click(function () {
+                $('.lightbox').fadeOut('slow');
+            });
+        });
+        
+    </script>
+</head>
+
+<body>
+    <div class="lightbox">
+        <img src="images/close.png" class="close"  />
+        <img src="images/Welcome.png" class="ad" />
+    </div>
+    <div class="container">
+        <form class="form" role="form">
+            <!--<h2 class="form-heading">PV Calculator</h2>
+            <h4 class="form-heading">&copy 2014 Smartphenix.com </h4>-->
+            <div class="control-container absolute-center">
+                <button class="btn btn-lg btn-info btn-block btn-width btn-height" type="button" onclick="window.location='Selection.html'">Arabic</button>
+                <button class="btn btn-lg btn-info btn-block btn-width btn-height" type="button" onclick="window.location='Selection.html'">English</button>
+                <!--<button class="btn btn-lg btn-primary btn-block btn-width" type="button">Email Results</button>
+                <button class="btn btn-lg btn-primary btn-block btn-width" type="button" onclick="window.location='About.htm'">About PV Calculator</button>
+                <h5 class="form-heading">[F] www.facebook.com/smartphenix </h5>
+                <h5 class="form-heading">[M] into@smartphenix.com </h5>-->
+            </div>
+        </form>
+
+    </div>
+    <!-- /container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+</body>
+</html>
