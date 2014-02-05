@@ -56,13 +56,13 @@
             <div class="control-container">
                 <div>
                     <label for="loanAmount" id="lblLoanAmount">Loan Amount</label>
-                    <input type="text" name="loanAmount" id="loanAmount" class="form-control" placeholder="Principal Amount" />
+                    <input type="number" name="loanAmount" id="loanAmount" class="form-control" placeholder="Principal Amount" />
                     <label for="annualInterestRate">Annual Interest Rate</label>
-                    <input type="text" name="annualInterestRate" id="annualInterestRate" class="form-control" placeholder="Interest Rate In Percentage" />
+                    <input type="number" name="annualInterestRate" id="annualInterestRate" class="form-control" placeholder="Interest Rate In Percentage" />
                     <label for="monthlyPayments">Monthly Payments</label>
-                    <input type="text" name="monthlyPayments" id="monthlyPayments" class="form-control" placeholder="Monthly Installment" />
+                    <input type="number" name="monthlyPayments" id="monthlyPayments" class="form-control" placeholder="Monthly Installment" />
                     <label for="numberOfMonths">Number Of Months</label>
-                    <input type="text" name="numberOfMonths" id="numberOfMonths" class="form-control" placeholder="Tenure" />
+                    <input type="number" name="numberOfMonths" id="numberOfMonths" class="form-control" placeholder="Tenure" />
                 </div>
                 <button class="btn btn-lg btn-info btn-block btn-width" id="calc" type="button" onclick="calculate(inputId);" >Calculate</button>
             </div>
