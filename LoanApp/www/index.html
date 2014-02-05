@@ -5,18 +5,35 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Phenix</title>
+    <title></title>
     <link href="css\bootstrap.css" rel="stylesheet">
     <link href="css\custom.css" rel="stylesheet">
     <script type="text/javascript" src="js/jquery.js"></script>
 
     <script>
+        var lan = 'en';
         $(document).ready(function () {
             $('.close').click(function () {
                 $('.lightbox').fadeOut('slow');
             });
+            $('#btnArabic').click(function () {
+                $('.form-heading').html('ﻣﺎذا ﺗرﯾد ا ن ﺗﺣﺳب؟');
+                $('#btnMonthlyPayments').html('اﻟدﻓﻌﺎت اﻟﺷﮭرﯾﮫ').css('font-size', '22px');
+                $('#btnLoanAmount').html('ﻗﯾﻣﺔ اﻟﻘرض').css('font-size', '22px');
+                $('#btnAnnualInterestRate').html('ﻧﺳﺑﮫ اﻟﻔﺎﺋده اﻟﺳﻧوﯾﮫ').css('font-size', '22px');
+                $('#btnNumberOfMonths').html('ﻋدد اﻷﺷﮭر').css('font-size', '22px');
+                lan = 'ar';
+            });
+            $('#btnEnglish').click(function () {
+                $('.form-heading').html('What do you want to calculate?');
+                $('#btnMonthlyPayments').html('Monthly Payments').css('font-size', '18px');
+                $('#btnLoanAmount').html('Loan Amount').css('font-size', '18px');
+                $('#btnAnnualInterestRate').html('Annual Interest Rate').css('font-size', '18px');
+                $('#btnNumberOfMonths').html('Number Of Months').css('font-size', '18px');
+                lan = 'en';
+            });
         });
-        
+
     </script>
 </head>
 
@@ -27,24 +44,19 @@
     </div>
     <div class="container">
         <form class="form" role="form">
-            <!--<h2 class="form-heading">PV Calculator</h2>
-            <h4 class="form-heading">&copy 2014 Smartphenix.com </h4>-->
-            <div class="control-container absolute-center">
-                <button class="btn btn-lg btn-info btn-block btn-width btn-height" type="button" onclick="window.location='Selection.html'">Arabic</button>
-                <button class="btn btn-lg btn-info btn-block btn-width btn-height" type="button" onclick="window.location='Selection.html'">English</button>
-                <!--<button class="btn btn-lg btn-primary btn-block btn-width" type="button">Email Results</button>
-                <button class="btn btn-lg btn-primary btn-block btn-width" type="button" onclick="window.location='About.htm'">About PV Calculator</button>
-                <h5 class="form-heading">[F] www.facebook.com/smartphenix </h5>
-                <h5 class="form-heading">[M] into@smartphenix.com </h5>-->
+            <div class="btn-group btn-group-lg">
+                <button type="button" id="btnEnglish" class="btn btn-default">English</button>
+                <button type="button" id="btnArabic" class="btn btn-default">Arabic</button>
+            </div>
+            <h2 class="form-heading">What do you want to calculate?</h2>
+            <div class="control-container">
+                <button class="btn btn-lg btn-info btn-block btn-width" id="btnMonthlyPayments" type="button" onclick="window.location='Calculator.html?id=monthlyPayments&lan='+lan">Monthly Payments</button>
+                <button class="btn btn-lg btn-info btn-block btn-width" id="btnLoanAmount" type="button" onclick="window.location='Calculator.html?id=loanAmount&lan='+lan">Loan Amount</button>
+                <button class="btn btn-lg btn-info btn-block btn-width" id="btnAnnualInterestRate" type="button" onclick="window.location='Calculator.html?id=annualInterestRate&lan='+lan">Annual Interest Rate</button>
+                <button class="btn btn-lg btn-info btn-block btn-width" id="btnNumberOfMonths" type="button" onclick="window.location='Calculator.html?id=numberOfMonths&lan='+lan">Number Of Months</button>
             </div>
         </form>
 
     </div>
-    <!-- /container -->
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-
 </body>
 </html>

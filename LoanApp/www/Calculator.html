@@ -5,41 +5,69 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Phenix</title>
+    <title></title>
     <link href="css\bootstrap.css" rel="stylesheet">
     <link href="css\custom.css" rel="stylesheet">
+    <link href="css\switch.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/calculation.js"></script>
+    <script>
+        var inputId = String(get('id'));
+        function get(name) {
+            if (name = (new RegExp('[?&]' + encodeURIComponent(name) + '=([^&]*)')).exec(location.search))
+                return decodeURIComponent(name[1]);
+        }
+        function setArabic() {
+            $("[for='loanAmount']").html('ﻗﯾﻣﺔ اﻟﻘرض').css('font-size', '18px');
+            $("[for='annualInterestRate']").html('ﻧﺳﺑﮫ اﻟﻔﺎﺋده اﻟﺳﻧوﯾﮫ').css('font-size', '18px');
+            $("[for='monthlyPayments']").html('اﻟدﻓﻌﺎت اﻟﺷﮭرﯾﮫ').css('font-size', '18px');
+            $("[for='numberOfMonths']").html('ﻋدد اﻷﺷﮭر').css('font-size', '18px');
+            $("#calc").html('اﺣﺳب').css('font-size', '22px');
+        }
+        function setEnglish() {
+            $("[for='loanAmount']").html('Loan Amount').css('font-size', '14px');
+            $("[for='annualInterestRate']").html('Annual Interest Rate').css('font-size', '14px');
+            $("[for='monthlyPayments']").html('Monthly Payments').css('font-size', '14px');
+            $("[for='numberOfMonths']").html('Number Of Months').css('font-size', '14px');
+            $("#calc").html('Calculate').css('font-size', '18px');
+        }
+        $(document).ready(function () {
+            $('#' + inputId).attr('readonly', true);
+            if(String(get('lan')) == 'ar'){setArabic();}
+            $('#btnArabic').click(function () {
+                setArabic();
+            });
+            $('#btnEnglish').click(function () {
+                setEnglish();
+            });
+        });
+
+    </script>
 </head>
 
 <body>
     <div class="container">
         <form class="form" role="form">
-            <h2 class="form-heading"> </h2>
-            <!--<h4 class="form-heading">&copy 2014 Smartphenix.com </h4>-->
+            <div class="btn-group btn-group-lg">
+                <button type="button" id="btnEnglish" class="btn btn-default">English</button>
+                <button type="button" id="btnArabic" class="btn btn-default">Arabic</button>
+            </div>
+            <h2 class="form-heading"></h2>
             <div class="control-container">
                 <div>
-                    <label for="loanAmount">Loan Amount</label>
-                    <input type="text" name="loanAmount" id="loanAmount" class="form-control" placeholder="" />
+                    <label for="loanAmount" id="lblLoanAmount">Loan Amount</label>
+                    <input type="text" name="loanAmount" id="loanAmount" class="form-control" placeholder="Principal Amount" />
                     <label for="annualInterestRate">Annual Interest Rate</label>
-                    <input type="text" name="annualInterestRate" id="annualInterestRate" class="form-control" placeholder="" />
+                    <input type="text" name="annualInterestRate" id="annualInterestRate" class="form-control" placeholder="Interest Rate In Percentage" />
                     <label for="monthlyPayments">Monthly Payments</label>
-                    <input type="text" name="monthlyPayments" id="monthlyPayments" class="form-control" placeholder="" />
+                    <input type="text" name="monthlyPayments" id="monthlyPayments" class="form-control" placeholder="Monthly Installment" />
                     <label for="numberOfMonths">Number Of Months</label>
-                    <input type="text" name="numberOfMonths" id="numberOfMonths" class="form-control" placeholder="" />
+                    <input type="text" name="numberOfMonths" id="numberOfMonths" class="form-control" placeholder="Tenure" />
                 </div>
-                <button class="btn btn-lg btn-info btn-block btn-width" type="button" onclick="window.location='Calculator.html'">Calculate</button>
-                <!--<button class="btn btn-lg btn-primary btn-block btn-width" type="button">Email Results</button>
-                <button class="btn btn-lg btn-primary btn-block btn-width" type="button" onclick="window.location='About.htm'">About PV Calculator</button>
-                <h5 class="form-heading">[F] www.facebook.com/smartphenix </h5>
-                <h5 class="form-heading">[M] into@smartphenix.com </h5>-->
+                <button class="btn btn-lg btn-info btn-block btn-width" id="calc" type="button" onclick="calculate(inputId);" >Calculate</button>
             </div>
         </form>
 
     </div>
-    <!-- /container -->
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-
 </body>
 </html>
