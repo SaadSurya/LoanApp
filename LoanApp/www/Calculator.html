@@ -21,14 +21,14 @@
             $("[for='loanAmount']").html('ﻗﯾﻣﺔ اﻟﻘرض').css('font-size', '18px');
             $("[for='annualInterestRate']").html('ﻧﺳﺑﮫ اﻟﻔﺎﺋده اﻟﺳﻧوﯾﮫ').css('font-size', '18px');
             $("[for='monthlyPayments']").html('اﻟدﻓﻌﺎت اﻟﺷﮭرﯾﮫ').css('font-size', '18px');
-            $("[for='numberOfMonths']").html('ﻋدد اﻷﺷﮭر').css('font-size', '18px');
+            $("[for='numberOfMonths']").html('عدد السنين').css('font-size', '18px');
             $("#calc").html('اﺣﺳب').css('font-size', '22px');
         }
         function setEnglish() {
             $("[for='loanAmount']").html('Loan Amount').css('font-size', '14px');
             $("[for='annualInterestRate']").html('Annual Interest Rate').css('font-size', '14px');
             $("[for='monthlyPayments']").html('Monthly Payments').css('font-size', '14px');
-            $("[for='numberOfMonths']").html('Number Of Months').css('font-size', '14px');
+            $("[for='numberOfMonths']").html('Number Of Years').css('font-size', '14px');
             $("#calc").html('Calculate').css('font-size', '18px');
         }
         $(document).ready(function () {
@@ -61,7 +61,7 @@
                     <input type="number" name="annualInterestRate" id="annualInterestRate" class="form-control" placeholder="Interest Rate In Percentage" />
                     <label for="monthlyPayments">Monthly Payments</label>
                     <input type="number" name="monthlyPayments" id="monthlyPayments" class="form-control" placeholder="Monthly Installment" />
-                    <label for="numberOfMonths">Number Of Months</label>
+                    <label for="numberOfMonths">Number Of Years</label>
                     <input type="number" name="numberOfMonths" id="numberOfMonths" class="form-control" placeholder="Tenure" />
                 </div>
                 <button class="btn btn-lg btn-info btn-block btn-width" id="calc" type="button" onclick="calculate(inputId);" >Calculate</button>
