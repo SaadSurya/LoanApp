@@ -1,8 +1,11 @@
+var percentageArray = new Array(-0.15, -0.10, -0.05, 0.05, 0.10, 0.15);
 function calculateLoanAmount() {
     var mi = $('#monthlyPayments').val();
     var air = $('#annualInterestRate').val();
-    var nm = $('#numberOfMonths').val();
-    var la = mi * nm * 12 / (1 + (nm * air / 100));
+    var mir = air / 1200;
+    var nm = $('#numberOfMonths').val()*12;
+    var la = mi / mir * (1 - (Math.pow((1 + mir), -nm)));
+
     $('#loanAmount').val(isNaN(la)?"All other fields are required":la.toFixed(0));
 }
 function calculateAnnualInterestRate() {
@@ -13,10 +16,11 @@ function calculateAnnualInterestRate() {
     $('#annualInterestRate').val(isNaN(air) ? "All other fields are required" : air.toFixed(2));
 }
 function calculateMonthlyInstallment() {
-    var air = $('#annualInterestRate').val(); 
+    var air = $('#annualInterestRate').val();
+    var mir = air / 1200;
     var la = $('#loanAmount').val();
-    var nm = $('#numberOfMonths').val();
-    var mi = la / (nm * 12) * (1 + (nm * air / 100));
+    var nm = $('#numberOfMonths').val()*12;
+    var mi = la * (mir / (1 - (Math.pow((1 + mir), -nm))));
     $('#monthlyPayments').val(isNaN(mi) ? "All other fields are required" : mi.toFixed(2));
 }
 function calculateNumberOfMonths() {
